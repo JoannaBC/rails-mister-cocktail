@@ -1,0 +1,27 @@
+<div class="container">
+
+
+<h1>New Cocktail</h1>
+  <% if @cocktail.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @cocktail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for(@cocktail) do |f| %>
+    <%= f.label :name, "Enter name" %>
+    <%= f.text_field :name %>
+    <%= f.label :ingredients, "Enter ingredients" %>
+    <%= f.text_field :ingredients %>
+    <%= f.label :doses, "Enter doses" %>
+    <%= f.text_field :doses %>
+    <%= f.submit %>
+  <% end %>
+
+<%= link_to 'Back', cocktails_path %>
+
+</div>
